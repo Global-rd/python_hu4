@@ -40,7 +40,7 @@ A házi feladatok beküldéséhez kövesd a következő flow-t:
 1. **Pull-old a változásokat** a main-ből a local repo-dba:
 
     ```bash
-    git pull https://github.com/Global-rd/python_hu.git
+    git pull https://github.com/Global-rd/python_hu4.git
     ```
 
 3. **Hozz létre egy új branch-et** a házidhoz:
