@@ -1,6 +1,6 @@
 # Python Kezdőknek
 
-Ez a repository a kezdő Python kurzushoz negyedik stream-jéhez jött létre. Itt érheted el az órákon tanultakat, illetve itt kezeljük a házi feladatokat is.
+Ez a repository a kezdő Python kurzus negyedik stream-jéhez jött létre. Itt érheted el az órákon tanultakat, illetve itt kezeljük a házi feladatokat is.
 
 ## Tartalomjegyzék
 
