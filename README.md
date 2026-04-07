@@ -18,7 +18,7 @@ Ez a repository a kezdő Python kurzus negyedik stream-jéhez jött létre. Itt 
 1. Klónozd a repository-t a gépedre (minden alábbi lépéshez használhatod a Github Desktop-ot is):
 
     ```bash
-    git clone https://github.com/Global-rd/python_hu.git
+    git clone https://github.com/Global-rd/python_hu4.git
     ```
 
 2. Lépj be a projekt könyvtárába:
