@@ -60,6 +60,6 @@ streamlit-test_pi/
 # Specific DB files
 webshop.db
 
-# Tool caches
+# Code quality caches
 .mypy_cache/
 .ruff_cache/
