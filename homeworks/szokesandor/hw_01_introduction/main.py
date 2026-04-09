@@ -9,4 +9,4 @@ print("Nagyon zúg a gépemben a tápegység ventillátora! Meg kellene már csi
 print(2026)    # egész szám
 print(3.3333)  # lebegőpontos szám
 print(True)    # logikai
-print (None)   # none - információ hiánya
+print(None)    # none - információ hiánya
