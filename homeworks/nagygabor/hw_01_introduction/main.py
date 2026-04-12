@@ -6,7 +6,7 @@ Ez az első python Programom
 '''
 #STRING
 
-print ('apple') 
+print('apple') 
 
 #BOOLEAN
 
@@ -15,14 +15,14 @@ print(False)
 
 #NONE
 
-print (None)
+print(None)
 
 #INTEGRATE
 
-print (123)
+print(123)
 print(12)
 
 #FLOAT
 
-print(3,14568)
+print(3.14568)
 
