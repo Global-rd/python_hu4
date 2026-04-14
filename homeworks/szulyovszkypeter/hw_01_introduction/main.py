@@ -9,6 +9,7 @@ print(False) # boolean -> logikai
 print(None)  # none -> még nem ismert majd kiderül
 
 print('Kész a házi benne a tanult primtív adatípusok Hurrá')
+print('teszt commit')
 '''
 Kész a házi benne a tanult primtív adatípusok
 Hurrá
