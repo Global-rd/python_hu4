@@ -56,23 +56,31 @@ developer!"
 
 '''
 
+'''
+*** Python-ban nincs szükség arra, hogy létrehozd a változókat egy
+    kezdeti értékkel. Elég, ha ahol az input()-ot kéred be, ott
+    létrejön a user_name változó. Ha szeretnél type annotation-öket
+    használni, ott is megteheted, így egyszerűsödik a kódod. Igaz ez
+    minden ilyen előre létrehozott változóra, ezeket töröld kérlek.
+
 # VARIABLE DEFINITION
 user_name: str = ''
 user_age: int = 0
 user_age_in_days: int = 0
 user_python_experience_in_years: int = 0
 is_user_to_be_prof: str = ''
+'''
 
 # INPUT DATAS
-user_name = input('Could you give me your name, please: ').upper().strip()
-user_age = int(input('Could you give me your age, please: '))
-user_python_experience_in_years = \
+user_name: str = input('Could you give me your name, please: ').upper().strip()
+user_age: int = int(input('Could you give me your age, please: '))
+user_python_experience_in_years: int = \
     int(input('Could you give me your Python experience in years, please: '))
-is_user_to_be_prof = \
+is_user_to_be_prof: str = \
     input('Would you like to be a professional Python developer? (yes/no) ')
 
 # THE CALCULATION ALSO ACCOUNTS FOR LEAP YEARS
-user_age_in_days = int(user_age * 365.25)
+user_age_in_days: int = int(user_age * 365.25)
 
 # PRINTING THE RESULT
 print(f'\nMy character is {user_age_in_days} days old. His/her name is'
@@ -80,6 +88,20 @@ print(f'\nMy character is {user_age_in_days} days old. His/her name is'
       f' years experience.', end=' ')
 
 # EVALUATING THE CONDITION AND PRINTING THE FINAL RESULT
+'''
+*** szuper a megoldásod, de ha megnézed akkor a két lehetséges kimenetel között
+    egy apró különbség van csak:
+
+        wants - does not want.
+
+    létrehozhatnál egy változót
+    így nem ismétled a mondat nagy részét kétszer (DRY = don't repeat yourself,
+    erről nemsokára tanulunk), és a ternary operator-os kifejezésed is kifér
+    egy sorra, ami elegánsabb python-os megoldást eredményez.
+
 print('He/she wants to be a Python developer!') \
     if is_user_to_be_prof == 'yes' \
     else print('He/she does not want to be a Python developer!')
+'''
+modify: str = 'wants' if is_user_to_be_prof == 'yes' else 'does not want'
+print(f'He/she {modify} to be a Python developer!')

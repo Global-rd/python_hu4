@@ -40,9 +40,13 @@ user_info = {
     }
 }
 
+'''
+*** ugyanaz a helyzet, nincs szükség ezekre a sorokra.
+
 # VARIABLE DEFINITION
 input_temp: str = ''
 list_temp: list = []
+'''
 
 # MODIFY DICT
 '''
@@ -54,7 +58,7 @@ a fenti dictionary-hez “skills” néven.
 
 '''
 # INPUT DATA
-input_temp = input('Please provide 4 programming languages '
+input_temp: str = input('Please provide 4 programming languages '
                    '(separated by commas, without spaces): ')
 
 # input_temp = 'basic,assembly,python,c++'
@@ -76,8 +80,19 @@ user_info['favourite_meals'].append('spaghetti')
 # Add hozzá a favourite_meals-hez az aktuális favourite_meals lista
 # harmadik és negyedik elemét (nem az index-ét) újra.
 # - pass
+'''
+*** itt a 3 - 1 helyett miért nem használtál simán 2-t? :)
+    meg tudod egyébként a teljes feladatot oldani egy soron, ha range-ekre
+    hivatkozol
+
+    ha például az lett volna a feladat hogy add hozzá a 3., 4., 5., 6., 7., 8.
+    elemet újra, akkor már 6 sornyi kódot kellett volna egymás alá másolnod.
+    Ezért effektívebb a lista elemeire index range-ekkel hivatkozni, mert így
+    1 soron megoldod a problémát.
 user_info['favourite_meals'].append(user_info['favourite_meals'][3 - 1])
 user_info['favourite_meals'].append(user_info['favourite_meals'][4 - 1])
+'''
+user_info['favourite_meals'].append(user_info['favourite_meals'][2:4])
 
 # Ezután töröld az így keletkezett duplikátumokat!
 # - pass
