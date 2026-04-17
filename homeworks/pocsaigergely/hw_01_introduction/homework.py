@@ -9,3 +9,5 @@ print(3.14) #float
 print(True) #boolean
 print(None) #none vagyis nincs semmi értelmezve
 
+#push
+
