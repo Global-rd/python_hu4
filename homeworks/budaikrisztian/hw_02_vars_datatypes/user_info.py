@@ -53,9 +53,7 @@ input_data: str = input(
     "Please provide 4 programming languages "
     "(separated by commas, without spaces): "
 )
-skills_list: list[str] = (
-    list(input_data.strip().split(",")) if input_data else []
-)
+skills_list: list[str] = input_data.strip().split(",") if input_data else []
 
 # Validate the number of provided languages
 if (skills_list_length := len(skills_list)) != 4:
