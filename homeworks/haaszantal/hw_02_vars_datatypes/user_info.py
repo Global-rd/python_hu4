@@ -97,6 +97,8 @@ print("------------------------------")
 
 #Extra 2: Most, hogy Tim-nek már csak 1 telefonszáma van, érdemes lenne átnevezni Tim2-t Tim-re!
 #Ezt 2 lépésben tudom megtenni: 1) a telefonszám átvitele az új kulcsra, 2) régi kulcs-érték törlése
-user_info["phone_contacts"]["Tim"]  = "+36304567321"
-del user_info["phone_contacts"]["Tim2"]
+#user_info["phone_contacts"]["Tim"]  = "+36304567321"
+#del user_info["phone_contacts"]["Tim2"]
+#De ez a jobb változat, 1 lépésben
+user_info["phone_contacts"]["Tim"] = user_info["phone_contacts"].pop("Tim2")
 pprint(user_info)
