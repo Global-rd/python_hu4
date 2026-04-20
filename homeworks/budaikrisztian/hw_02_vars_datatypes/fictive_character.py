@@ -50,16 +50,12 @@ Message construction tasks:
 - Print all collected information in an interpolated string (f-string).
 """
 # This part of the final message depends on the user's answer.
-final_message_part: str = (
-    "He/she wants to be a Python developer!"
-    if wants_to_be_prof == "yes"
-    else "He/she does not want to be a Python developer!"
-)
+dev_intention: str = "wants" if wants_to_be_prof == "yes" else "does not want"
 
 # Print the final message with all the collected and processed information.
 print(
     f"My character is {age_in_days} days old.\n"
     f"His/her name is {full_name} and "
     f"he/she has {python_experience_in_years} years experience.\n"
-    f"{final_message_part}"
+    f"He/she {dev_intention} to be a Python developer!"
 )
