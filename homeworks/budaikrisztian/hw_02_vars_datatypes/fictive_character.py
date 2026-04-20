@@ -20,8 +20,9 @@ User input tasks:
 - Round the result and assume that today is the character's birthday.
 """
 # Get the name from the user and normalize its format.
-full_name: str = input("Could you give me your full name, please: ")
-full_name = full_name.upper().strip()
+full_name: str = (
+    input("Could you give me your full name, please: ").upper().strip()
+)
 
 # Get the age and Python experience, ensuring they are integers.
 age: int = int(input("Could you give me your age, please: "))
