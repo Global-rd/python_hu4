@@ -98,13 +98,11 @@ print("After appending spaghetti:")
 pprint(user_info["favourite_meals"])
 
 # Extend the list with the 3rd and 4th meals
-user_info["favourite_meals"].extend(
-    [user_info["favourite_meals"][2], user_info["favourite_meals"][3]]
-)
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print("After extending with the 3rd and 4th meals:")
 pprint(user_info["favourite_meals"])
 
-# Delete the duplicated 3rd and 4th meals
+# Delete the duplicated 3rd and 4th mealsA
 del user_info["favourite_meals"][-2:]
 print("After deleting the duplicated two meals:")
 pprint(user_info["favourite_meals"])
