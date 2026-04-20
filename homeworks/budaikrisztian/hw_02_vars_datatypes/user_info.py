@@ -102,9 +102,11 @@ user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print("After extending with the 3rd and 4th meals:")
 pprint(user_info["favourite_meals"])
 
-# Delete the duplicated 3rd and 4th mealsA
-del user_info["favourite_meals"][-2:]
-print("After deleting the duplicated two meals:")
+# Remove duplicates while keeping order
+user_info["favourite_meals"] = list(
+    dict.fromkeys(user_info["favourite_meals"])
+)
+print("After removing duplicated meals:")
 pprint(user_info["favourite_meals"])
 
 # Swap the first and last meals
