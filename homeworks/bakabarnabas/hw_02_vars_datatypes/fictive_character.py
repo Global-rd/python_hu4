@@ -19,6 +19,5 @@ age_in_days = age_in_years * 365
 
 print("----")
 print(f"My character is {age_in_days} days old. His/her name is {name} and he/she has {python_exp_in_years} years experience ")
-print("He/she wants to be a professional Python developer!" 
-      if python_pro == "yes"
-        else " He/she does not want to be a Python developer! ")
+dev_intention = "wants" if python_pro == "yes" else "does not want"
+print(f"He/she {dev_intention} to be a Python developer!")

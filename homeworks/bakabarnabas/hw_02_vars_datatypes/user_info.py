@@ -25,7 +25,7 @@ user_info ["skills"] = prog_languages
 #2. Rendezd a favourite_meals lista elemeit abc szerinti növekvő
 #sorrendbe.
 
-user_info ["favourite_meals"]  .sort()
+user_info ["favourite_meals"].sort()
 
 #3.Printeld ki a favourite_meals lista utolsó előtti elemét
 
@@ -52,7 +52,7 @@ user_info["favourite_meals"] [0],user_info["favourite_meals"] [-1] = user_info["
 #8.A “phone_contacts” dictionary-hez adj hozzá egy új elemet,
 #tetszőleges névvel és telefonszámmal.
 
-user_info["phone_contacts"] ["Jack Sparrow"] = "+3620493892"
+user_info["phone_contacts"]["Jack Sparrow"] = "+3620493892"
 
 #9.9. Tim és Tim2 ugyanazt az embert reprezentálják a
 #“phone_contacts”-ban, viszont a "Tim" key mögött lévő telefonszám
@@ -63,7 +63,7 @@ user_info["phone_contacts"].pop("Tim",None)
 #10.Adj hozzá egy olyan új embert “phone_contacts”-hoz, akinek 2
 #telefonszáma is van!
 
-user_info["phone_contacts"] ["Dalai Láma"] = ("+36308378874, +36203473306")
+user_info["phone_contacts"]["Dalai Láma"] = ["+36308378874", "+36203473306"]
 
 #Extra 1: Printeld ki a “skills” lista utolsó 3 elemét ellentétes sorrendben!
 
