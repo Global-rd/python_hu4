@@ -1,5 +1,3 @@
-# HW 2
-
 # Adott dictionary
 user_info = {
     "name": "Mike",
@@ -32,10 +30,8 @@ user_info["favourite_meals"].append("spaghetti")
 print("favourite_meals after adding spaghetti:", user_info["favourite_meals"])
 
 # 5. aktuális favourite_meals lista harmadik és negyedik elem hozzáadása.
-third = user_info["favourite_meals"][2]
-fourth = user_info["favourite_meals"][3]
-user_info["favourite_meals"].extend([third, fourth])
-print("favourite_meals after adding third and fourth elements again:", user_info["favourite_meals"])
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
+print("favourite_meals after adding third and fourth elements again:", user_info["favourite_meals"]) 
 
 # 6. duplikátumok törlése
 user_info["favourite_meals"] = list(dict.fromkeys(user_info["favourite_meals"]))
@@ -56,14 +52,14 @@ print("phone_contact after adding John:", user_info["phone_contact"])
 del user_info["phone_contact"]["Tim"]
 print("phone_contact after deleting Tim:", user_info["phone_contact"])
 
-# 10. Adj hozzá egy olyan új embert "phone_contacts"-hoz, akinek 2 telefonszáma is van!
+# 10. Új ember hozzáadása.
 user_info["phone_contact"]["Anna"] = ["+36600123456", "+36600765432"]
 print("phone_contact after adding Anna with two numbers:", user_info["phone_contact"])
 
-# Extra 1: Printeld ki a "skills" lista utolsó 3 elemét ellentétes sorrendben!
+# Extra 1: "skills" lista utolsó 3 eleme
 last_three_reversed = user_info["skills"][-3:][::-1]
 print("Last 3 skills in reverse order:", last_three_reversed)
 
-# Extra 2: Most, hogy Tim-nek már csak 1 telefonszáma van, érdemes lenne átnevezni Tim2-t Tim-re!
+# Extra 2: átnevezni Tim2-t Tim-re!
 user_info["phone_contact"]["Tim"] = user_info["phone_contact"].pop("Tim2")
 print("phone_contact after renaming Tim2 to Tim:", user_info["phone_contact"])
