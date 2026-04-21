@@ -30,9 +30,7 @@ user_info["favourite_meals"].append("spaghetti")
 print(f"After append: {user_info['favourite_meals']}")
 
 # 5. READD 3RD AND 4TH ITEMS
-third_item = user_info["favourite_meals"][2]
-fourth_item = user_info["favourite_meals"][3]
-user_info["favourite_meals"].extend([third_item, fourth_item])
+user_info["favourite_meals"].extend( user_info["favourite_meals"][2:4])
 print(f"After extend: {user_info['favourite_meals']}")
 
 # 6. ERASE DUPLICATES
