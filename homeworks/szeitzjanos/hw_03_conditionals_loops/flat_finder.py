@@ -28,10 +28,10 @@ FELADAT 1:
     adott helyre.
 '''
 
-city: (str) = input('Please provide the location of the property; in which'
-                    ' city is it located: ').title()
-rental_fee: (str) = input('Please provide the monthly rental fee of the '
-                          'property: ')
+city: str = input('Please provide the location of the property; in which'
+                  ' city is it located: ').title()
+rental_fee: str = input('Please provide the monthly rental fee of the '
+                        'property: ')
 
 if rental_fee.isnumeric():
     rental = int(rental_fee)
