@@ -17,9 +17,9 @@ user_info={
 #1.
 print("---------")
 print("1.feladat")
-programnyelv=(input("Adj meg 4 programozási nyelvet, szóköz nélkül, vesszővel elválasztva: ")).split(",")
+programming_languages=(input("Adj meg 4 programozási nyelvet, szóköz nélkül, vesszővel elválasztva: ")).split(",")
 
-user_info["skills"]=programnyelv #a programnyelv lista hozzáadása a könvytárhoz
+user_info["skills"]=programming_languages #a programnyelv lista hozzáadása a könvytárhoz
 pprint.pprint(user_info)
 
 #2.
@@ -44,12 +44,14 @@ print(user_info["favourite_meals"])
 #5
 print("---------")
 print("5.feladat  A harmadik és negyedik elem hozzáadása a listához")
-user_info["favourite_meals"].extend(user_info["favourite_meals"][2:])
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print(user_info["favourite_meals"])
 
 #6
 print("---------")
 print("6.feladat - törlés")
+user_info["favourite_meals"]=list(set(user_info["favourite_meals"]))
+print(user_info["favourite_meals"])
 del user_info["favourite_meals"][-2:]
 print(user_info["favourite_meals"])
 
