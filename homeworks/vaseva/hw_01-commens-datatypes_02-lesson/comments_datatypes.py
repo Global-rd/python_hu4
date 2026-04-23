@@ -1,4 +1,3 @@
-
 #SINGLE LINE COMMENT / EGYSOROS KOMMENT
 
 print("*************************")
