@@ -5,6 +5,7 @@ print("Egy, megérett a meggy :)") # Az első Python-program köszöntése
 print("*************************")
 
 # MULTILINE COMMENT TYPES/ TÖBBSOROS KOMMENTTÍPUSOK    
+
 """
 This is
 my first 
