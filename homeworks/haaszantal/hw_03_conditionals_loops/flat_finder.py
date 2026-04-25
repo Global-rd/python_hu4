@@ -8,7 +8,9 @@ answered_price = int(input("Mennyit USD-t szánsz a lakbérre? Add meg az össze
 moving = False
 
 #a feltételek vizsgálata
-if ((answered_city == "NEW YORK") or (answered_city == "SAN FRANCISCO")) and (answered_price < 4000):
+#if ((answered_city == "NEW YORK") or (answered_city == "SAN FRANCISCO")) and (answered_price < 4000): -- sok a zárójel.
+#if (answered_city == "NEW YORK" or answered_city == "SAN FRANCISCO") and answered_price < 4000: -- ez így egyszerűbb
+if answered_city in ["NEW YORK","SAN FRANCISCO"] and answered_price < 4000:
      moving = True
 elif answered_city == "WASHINGTON":
      moving = False
