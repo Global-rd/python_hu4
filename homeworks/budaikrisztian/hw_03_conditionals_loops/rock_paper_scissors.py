@@ -42,32 +42,28 @@ def get_player_name(default_name: str) -> str:
 
 def get_round_count() -> int:
     """Ask for the number of rounds until the user gives an odd number."""
-    round_count: int = int(input("How many rounds do you want to play? "))
+    while True:
+        round_count: int = int(input("How many rounds do you want to play? "))
 
-    while round_count % 2 == 0:
+        if round_count % 2 == 1:
+            return round_count
+
         print("Invalid number. Please enter an odd number of rounds.")
-        round_count = int(input("How many rounds do you want to play? "))
-
-    return round_count
 
 
 def get_player_choice(player_name: str) -> str:
     """Ask one player for a valid rock, paper or scissors choice."""
-    player_choice: str = (
-        input(f"{player_name}, choose rock, paper or scissors: ")
-        .lower()
-        .strip()
-    )
-
-    while player_choice not in valid_choices:
-        print("Invalid choice. Please choose rock, paper or scissors.")
-        player_choice = (
+    while True:
+        player_choice: str = (
             input(f"{player_name}, choose rock, paper or scissors: ")
             .lower()
             .strip()
         )
 
-    return player_choice
+        if player_choice in valid_choices:
+            return player_choice
+
+        print("Invalid choice. Please choose rock, paper or scissors.")
 
 
 def get_round_winner(
