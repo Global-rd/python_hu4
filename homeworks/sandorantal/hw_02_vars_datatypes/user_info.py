@@ -20,9 +20,6 @@ user_info["skills"] = skills_list
 user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print(f"Carbonara {user_info['favourite_meals'][-2]}")
 user_info["favourite_meals"].append("spaghetti")
-third_item = user_info["favourite_meals"][2]
-fourth_item = user_info["favourite_meals"][3]
-user_info["favourite_meals"].extend([third_item, fourth_item])
 user_info["favourite_meals"] = list(set(user_info["favourite_meals"]))
 user_info["favourite_meals"][0], user_info["favourite_meals"][-1] = user_info["favourite_meals"][-1], user_info["favourite_meals"][0]
 user_info["phone_contacts"]["Anna"] = "+36301112233"
