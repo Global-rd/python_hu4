@@ -1,6 +1,6 @@
-name = input("Sandor Antal ")
-age = input("37")
-python_experience = input("0 ")
+name = input("What is your name? ")
+age = input("What is your age? ")
+python_experience = input("How many years of experience do you have with python? ")
 
 name = name.strip().upper()
 
