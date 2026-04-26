@@ -1,0 +1,17 @@
+
+city_name=input("Add emg a város nevét").strip().title()
+renting_fee=int(input("Add meg a lekbér értékét"))
+
+print(city_name)
+print(renting_fee)
+
+if (city_name=="San Fransisco" or city_name=="New York") and renting_fee<4000:
+    print(f"Kiveszem a lakást {city_name} városban.")
+elif city_name=="Washington": 
+    print(f"Gyűlölöm {city_name} a várost, semmi pénzért nem akarok itt élni.")
+elif  city_name=="Chicago":
+    print(f"A pénz nem számít, {city_name} városba költözöm akkor is, ha már kajára sem jut a fizetésemből, legalább lefogyok.")
+elif renting_fee<=3000:
+    print(f"Emnyi pénzért a Holdra is elköltöznék, úgyhogy {city_name} városba költözöm.")
+else:
+    print(f"Ez nem felel meg a követelményeimnak, nem akarok {city_name} városban lakni. ")
