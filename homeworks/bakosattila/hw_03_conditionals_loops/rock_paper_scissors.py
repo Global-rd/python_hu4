@@ -19,17 +19,47 @@ round_num = 1
 while round_num <= rounds:
     print(f"\n--- {round_num}. kör ---")
     
-    # Játékosok beírása
+    # Addig játszunk amíg valaki nem nyer (döntetlen esetén újra)
     while True:
-        move1 = input("Player 1, add meg a lépésed (rock/paper/scissors): ").lower()
-        if move1 not in ["rock", "paper", "scissors"]:
-            print("Hibás input! Csak a rock, paper vagy scissors lehetséges!")
-            continue
-        break
+        # Játékosok beírása
+        while True:
+            move1 = input("Játékos 1, add meg a lépésed (rock/paper/scissors): ").lower().strip()
+            if move1 not in ["rock", "paper", "scissors"]:
+                print("Hibás input! Csak a rock, paper vagy scissors lehetséges!")
+                continue
+            break
+        
+        while True:
+            move2 = input("Játékos 2, add meg a lépésed (rock/paper/scissors): ").lower().strip()
+            if move2 not in ["rock", "paper", "scissors"]:
+                print("Hibás input! Csak a rock, paper vagy scissors lehetséges!")
+                continue
+            break
+        
+        # Eredmény meghatározása
+        if move1 == move2:
+            print(f"Döntetlen! ({move1} vs {move2}) Újra játsszatok!")
+        elif (move1 == "rock" and move2 == "scissors") or \
+             (move1 == "paper" and move2 == "rock") or \
+             (move1 == "scissors" and move2 == "paper"):
+            print(f"Játékos 1 nyert! ({move1} vs {move2})")
+            player1_score += 1
+            break
+        else:
+            print(f"Játékos 2 nyert! ({move2} vs {move1})")
+            player2_score += 1
+            break
     
-    while True:
-        move2 = input("Player 2, add meg a lépésed (rock/paper/scissors): ").lower()
-        if move2 not in ["rock", "paper", "scissors"]:
-            print("Hibás input! Csak a rock, paper vagy scissors lehetséges!")
-            continue
-        break
+    round_num += 1
+
+# Végeredmény kiírása
+print("\n" + "="*40)
+print("VÉGEREDMÉNY")
+print("="*40)
+print(f"Játékos 1: {player1_score} pont")
+print(f"Játékos 2: {player2_score} pont")
+
+if player1_score > player2_score:
+    print(f"\n🎉 Játékos 1 nyert {player1_score - player2_score} ponttal!")
+else:
+    print(f"\n🎉 Játékos 2 nyert {player2_score - player1_score} ponttal!")
