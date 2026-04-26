@@ -2,10 +2,8 @@ import re
 
 #Get input data from user
 namevar = input("Enter Your Name")
-#agevar = input("Enter Your Age")
-agevar = 39
-#pyvar = input("Pythone exp. in Years")
-pyvar = 5
+agevar = input("Enter Your Age")
+pyvar = input("Pythone exp. in Years")
 
 User = {
     "name": namevar,
@@ -29,10 +27,5 @@ if namevar[leng-1] == " ":
 agevar_int = int(agevar)
 agevar_days = agevar_int * 365
 
-print(namevar,agevar_days)
-
-x = 5
-
-y = 10
-
-print(x is y)
+#Formatted string output
+print(f"My character is {agevar_days} days old. His name is {namevar} and he has {pyvar} years experience.")
