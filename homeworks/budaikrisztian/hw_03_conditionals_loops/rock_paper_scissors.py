@@ -25,6 +25,7 @@ valid_choices: list[str] = ["rock", "paper", "scissors"]
 class PlayerData(TypedDict):
     name: str
     score: int
+    # Store every valid choice, including choices from tied replay attempts.
     choices: list[str]
 
 
@@ -71,6 +72,7 @@ def get_round_winner(
     player_two: PlayerData,
 ) -> PlayerData | None:
     """Return the winner of the current round or None for a tie."""
+    # Use the last saved choice from both players to decide the current round.
     player_one_choice: str = player_one["choices"][-1]
     player_two_choice: str = player_two["choices"][-1]
 
