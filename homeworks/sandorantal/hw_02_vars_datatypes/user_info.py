@@ -1,3 +1,4 @@
+import pprint
 user_info = {
     "name": "Mike",
     "age": 25,
@@ -28,5 +29,4 @@ user_info["phone_contacts"]["Anna"] = "+36301112233"
 if "Tim" in user_info["phone_contacts"]:
     del user_info["phone_contacts"]["Tim"]
     user_info["phone_contacts"]["Gabor"] = ["+36209998877", "+36704445566"]
-    import pprint
 pprint.pprint(user_info)
