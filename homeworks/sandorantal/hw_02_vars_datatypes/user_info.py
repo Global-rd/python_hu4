@@ -17,7 +17,7 @@ user_info = {
 input_skills = input("Python,JavaScript,Java,Cplusplus ")
 skills_list = input_skills.split(",")
 user_info["skills"] = skills_list
-user_info["favourite_meals"].sort()
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print(f"Carbonara {user_info['favourite_meals'][-2]}")
 user_info["favourite_meals"].append("spaghetti")
 third_item = user_info["favourite_meals"][2]
