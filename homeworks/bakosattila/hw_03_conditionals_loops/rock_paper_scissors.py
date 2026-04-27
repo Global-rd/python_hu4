@@ -52,7 +52,7 @@ while round_num <= rounds:
     
     round_num += 1
 
-# Végeredmény kiírása
+
 print("\n" + "="*40)
 print("VÉGEREDMÉNY")
 print("="*40)
