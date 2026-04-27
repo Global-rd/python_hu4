@@ -14,7 +14,7 @@ while n%2==0:
         n=int(input("Hibás adat, add meg újra hány kört szeretnél játszani: "))
 
 print("----------------------------------")     
-print(f" Tehát a körök száma {n}. A döntetlen eredmény nem számítódik ba a körök számába.")
+print(f" Tehát a körök száma {n}. A döntetlen eredmény nem számítódik be a körök számába.")
 
 print("----------------------------------")
 
@@ -41,7 +41,7 @@ while score_player_1+score_player_2<n:
     
 
     if player_1==player_2:
-        print(f"A(z) {current_round}. kör eredméyne döntetlen. Újraszámolás indul")
+        print(f"A(z) {current_round}. kör eredméyne döntetlen. Újraszámolás indul.")
         print("----------------------------------")
         continue
 
@@ -60,12 +60,12 @@ print("----------------------------------")
 
 if score_player_1>score_player_2:
     print("Végeredmény: Az első játékos nyert.")
-    result_1=score_player_1-score_player_2
-    print(f"{result_1} ponttal többett szerzett, mint a második játékos")
+    
+    print(f"{score_player_1-score_player_2} ponttal többett szerzett, mint a második játékos.")
     print("----------------------------------")  
 else:
     print("Végeredmény: A második játékos nyert.")
-    result_2=score_player_2-score_player_1
-    print(f"{result_2} ponttal többet szerzett, mint az első játékos")
+    
+    print(f"{score_player_2-score_player_1} ponttal többet szerzett, mint az első játékos.")
     print("----------------------------------")  
 

@@ -1,11 +1,11 @@
 
-city_name=input("Add emg a város nevét").strip().title()
-renting_fee=int(input("Add meg a lekbér értékét"))
+city_name=input("Add emg a város nevét: ").strip().title()
+renting_fee=int(input("Add meg a lekbér értékét: "))
 
 print(city_name)
 print(renting_fee)
 
-if (city_name=="San Fransisco" or city_name=="New York") and renting_fee<4000:
+if city_name in ["San Fransisco", "New York"] and renting_fee<4000:
     print(f"Kiveszem a lakást {city_name} városban.")
 elif city_name=="Washington": 
     print(f"Gyűlölöm {city_name} a várost, semmi pénzért nem akarok itt élni.")
