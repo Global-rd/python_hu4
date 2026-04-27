@@ -1,3 +1,5 @@
+# 2 feladat
+
 korok_szama = int(input("Add meg hány körből álljon a játék: "))
 
 j1_pont = 0
