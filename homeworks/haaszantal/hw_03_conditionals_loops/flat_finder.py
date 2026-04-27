@@ -16,9 +16,12 @@ elif answered_city == "WASHINGTON":
      moving = False
 elif answered_city == "CHICAGO":
      moving = True
-else:
-    if answered_price <= 3000:
-       moving = True
+#ezt össze lehet vonni:
+#else:
+#    if answered_price <= 3000:
+#       moving = True
+elif answered_price <= 3000: # Itt vontuk össze az else + if részt
+    moving = True
 
 #boolean típusú változó értékének szöveg megadása
 result = "költözhetsz" if moving else "nem költözhetsz"

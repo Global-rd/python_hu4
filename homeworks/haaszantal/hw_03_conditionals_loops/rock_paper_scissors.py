@@ -79,13 +79,14 @@ while current_round <= requested_round_number:
                   answer_player1 == "papír" and answer_player2 =="kő"):
                 print("A pont az első játékosé")
                 score_player1 += 1
-                current_round += 1
+                #current_round += 1 - itt nem kell növelni az értéket, ld. 89. sor
         
             #az összes többi esetben a 2. játékos nyer
         else:
                print("A pont a második játékosé")
                score_player2 += 1
-               current_round += 1
+
+        current_round += 1 ## ez vonatkozik mindkét játékosra
 
 #a result változóban eltárolom a győztes nevét és az eredmény alakulását
 result = f"Első játékos nyert, {score_player1} : {score_player2} arányban." if score_player1 > score_player2 else f"Második játékos nyert, {score_player2} : {score_player1} arányban."
