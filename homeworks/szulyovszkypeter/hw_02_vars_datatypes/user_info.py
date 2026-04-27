@@ -66,7 +66,9 @@ print('---------------')
 print(f"Utolsó 3 elem ellentétes sorrendben: {user_info['skills'][-3:][::-1]}")
 print('Extra 2: Most, hogy Tim-nek már csak 1 telefonszáma van, érdemes lenne átnevezni Tim2-t Tim-re!')
 print('---------------')
-user_info["phone_contacts"]["Tim"] = user_info["phone_contacts"]["Tim2"]
-del user_info["phone_contacts"]["Tim2"]
+#user_info["phone_contacts"]["Tim"] = user_info["phone_contacts"]["Tim2"]
+#del user_info["phone_contacts"]["Tim2"]
+#javítás
+user_info['phone_contacts']['Tim'] = user_info['phone_contacts'].pop('Tim2')
 print('---------------')
 pprint(user_info)
