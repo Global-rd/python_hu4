@@ -33,7 +33,6 @@ print(first_name, last_name, age_in_days)
 print(len(first_name))
 print(len(last_name))
 
-
 # A karakter jellemzőinek kiiratása:
 
 print("---------")
