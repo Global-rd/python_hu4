@@ -26,6 +26,6 @@ user_info["favourite_meals"] = list(dict.fromkeys(user_info["favourite_meals"]))
 user_info["favourite_meals"][0], user_info["favourite_meals"][-1] = user_info["favourite_meals"][-1], user_info["favourite_meals"][0] #swapping the first and last element of the list
 user_info["phone_contacts"]["John"] = "+36201234567" #adding a new contact to the phone_contacts dictionary with the key "John" and the value "+36201234567"
 del user_info["phone_contacts"]["Tim"] #deleting the contact with the key "Tim" from the phone_contacts dictionary
-user_info["phone_contacts"]["Louis"] = (["+36301234567", "+36307654321"]) #adding a new contact to the phone_contacts dictionary with the key "Louis" and the value being a list of two phone numbers
+user_info["phone_contacts"]["Louis"] = ["+36301234567", "+36307654321"] #adding a new contact to the phone_contacts dictionary with the key "Louis" and the value being a list of two phone numbers
 print(user_info["skills"][-1:-4:-1]) #printing the last three elements of the skills list in reverse order
 user_info["phone_contacts"]["Tim"] = user_info["phone_contacts"].pop("Tim2") #moving the contact with the key "Tim2" to the key "Tim" in the phone_contacts dictionary using the pop() method to remove the old key and return its value, which is then assigned to the new key
