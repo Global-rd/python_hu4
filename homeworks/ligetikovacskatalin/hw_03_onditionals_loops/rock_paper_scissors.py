@@ -5,8 +5,8 @@ print("----------------------------------")
 score_player_1=0
 score_player_2=0
 current_round=1
-result_1=0
-result_2=0
+
+
 
 n=int(input("Add meg, hány kört szeretnél játszani: "))
 
@@ -67,5 +67,5 @@ else:
     print("Végeredmény: A második játékos nyert.")
     
     print(f"{score_player_2-score_player_1} ponttal többet szerzett, mint az első játékos.")
-    print("----------------------------------")  
+    print("----------------------------------")
 
