@@ -49,4 +49,4 @@ user_info["phone_contacts"]["Lizzie"] = "+3614664356"
 user_info["phone_contacts"].pop("Tim","None")
 
 # 10.Adj hozzá egy olyan új embert “phone_contacts”-hoz, akinek 2 telefonszáma is van!
-user_info["phone_contacts"]["Hanna"] = "+3614664356", "+802765188"
+user_info["phone_contacts"]["Hanna"] = ["+3614664356", "+802765188"]
