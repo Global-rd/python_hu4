@@ -15,7 +15,9 @@ rules = {
 
 #amit a gép választ (random)
 def computer_choice():
-    return random.choice(choices)
+    choice=random.choice(choices)
+    print(f"A gép ezt választottta:{choice}")
+    return choice
 
 #validálja és castolja az input-ot
 def round_validator(input_text):
@@ -31,13 +33,13 @@ def round_validator(input_text):
 
 #ez teszi lehetővé a választást
 def gamer_choices():
-    comp_choice=computer_choice()
     while True:
         human_choice=input("Kérem adja meg mit választ:")
         if human_choice in choices:
             break
         else:   
             continue
+    comp_choice=computer_choice()
     return human_choice,comp_choice
 
 #ez dönti el ki fog nyerni és növeli a pontokat
@@ -56,7 +58,7 @@ def who_is_the_winner(hum_choice,comp_choice):
 def start_game(rounds):
     i=0
     #human_choice,computer_choice=gamer_choices()
-    while i!=rounds:
+    while i<=rounds or scores["Human"]==scores["Robot"]:
         i+=1
         who_is_the_winner(*gamer_choices())
     

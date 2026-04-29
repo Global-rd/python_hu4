@@ -18,23 +18,22 @@ import random
 def file_reader(path)->list:
     cities=[]
     try:
-        with open("homeworks/rakosgergelypeter/hw_03_conditionals_loops/cities.csv", newline='', encoding='utf-8') as f:
+        with open(path, newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f, delimiter=';') 
         
             for row in reader:
                 cities.append(row["City"])
         return cities
-    except FileNotFoundError:
-        print(f"Nem megfelelő az elérési útvonal:{path}")
-    except UnicodeDecodeError:
-        print(f"Nem megfelelő az encoding :{path}")
+    except FileNotFoundError as e :
+        print(f"Nem megfelelő az elérési útvonal:{path}. Exception: {e}")
+    except UnicodeDecodeError as e:
+        print(f"Nem megfelelő az encoding :{path}. Exception: {e}")
 
 #validálja, hogy a ,megadott város tényleg létezik USA-ban
 def checking_the_city_existing(city,cities)->bool:
     #Létező város?
-    if city in cities:
-        return True
-    
+    return city in cities
+
 #validálja és castolja az input-ot
 def input_validator(input_text,input_type="str"):
     while True:
@@ -42,7 +41,6 @@ def input_validator(input_text,input_type="str"):
         try:
             if user_input!="" and input_type.lower()=="int":
                 return int(user_input)
-                break
             else:   
                 return user_input
         except ValueError:
@@ -54,7 +52,7 @@ def output_generator (city,price) ->str:
     if city is not None and price is not None:
         return print(f"A megadott paraméterek alapján neked ez a legoptimálisabb választás : Város :{city}, Albérlet ára:{price} ")
 
-def options(cities,city=None,price=None,):
+def options(cities,city=None,price=None):
     #city van és price is van
     if checking_the_city_existing(city,cities) :
         if city =="Chicago":
@@ -70,7 +68,7 @@ def options(cities,city=None,price=None,):
             else:
                 return random.choice(cities),price
     # city van de price nincs
-    elif checking_the_city_existing(city,cities)  and price=="":
+    elif checking_the_city_existing(city,cities) and price is None:
         if city =="Chicago":
             return city,0
             exit
@@ -81,7 +79,7 @@ def options(cities,city=None,price=None,):
             else:
                 return city,random.randint(1000, 10000)
     #ha csak price van
-    elif city=="" and price=="":
+    elif city=="":
         if price<=3000:
             return random.choice(cities),random.randint(1000, 10000)
     else:
