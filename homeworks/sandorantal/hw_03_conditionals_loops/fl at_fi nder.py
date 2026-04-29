@@ -15,6 +15,6 @@ else:
 
 # kiírom fstringgel is a megoldást
 if can_move_in:
-    print(f"Sarah be tud költözni ide: {city}, {rent} USD-ért.")
+    print(f"Sarah can move into {city} for {rent} USD.")
 else:
-    print(f"Sarah sajnos NEM költözik be ide: {city}, {rent} USD-ért.")
+    print(f"Unfortunately, Sarah is NOT moving to {city} for {rent} USD.")
