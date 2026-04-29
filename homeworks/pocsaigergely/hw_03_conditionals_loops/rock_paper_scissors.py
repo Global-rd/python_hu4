@@ -25,7 +25,9 @@ while rounds > 0:
         if move_2 in ["rock","paper","scissor"]:
             break
 
-# If its a tie then again
+
+    """
+    OLD VERSION
     if move_1 == move_2:
         print("Tie, again!")
         rounds = rounds + 1
@@ -47,9 +49,27 @@ while rounds > 0:
 
     if move_1 == "rock" and move_2 == "scissor": 
         p1_score +=1
-    
+    """ 
+
+# If its a tie then again
+    if move_1 == move_2:
+        print("Tie, again!")
+        rounds += 1
+
+# p1 win
+    elif (move_1 == "rock" and move_2 == "scissor") or \
+         (move_1 == "paper" and move_2 == "rock") or \
+         (move_1 == "scissor" and move_2 == "paper"):
+        p1_score += 1
+
+# p2 win
+    else:
+        p2_score += 1
+
 
     rounds = rounds - 1
+
+
 
 print("-----=============-----")
 print("GAME OVER")
