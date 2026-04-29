@@ -14,7 +14,7 @@ elif city == "Chicago":
 elif city in ["New York", "San Francisco"] and rent < 4000:
     print(f"Sarah would MOVE to {city} for ${rent}/month!")
 
-elif city not in ["Washington", "Chicago", "New York", "San Francisco"] and rent <= 3000:
+elif rent <= 3000:
     print(f"Sarah would MOVE to {city} for ${rent}/month!")
 
 else:
