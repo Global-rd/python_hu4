@@ -1,0 +1,23 @@
+2026-04-30 16:48:42,447 - INFO - Program started.
+2026-04-30 16:48:42,448 - INFO - Loading tasks from file: to_do_list.txt
+2026-04-30 16:48:42,448 - INFO - The to_do_list.txt file is empty or does not exist! No task is read.
+2026-04-30 16:49:12,243 - INFO - New task added to the list: mosogatás
+2026-04-30 16:49:27,179 - INFO - New task added to the list: porszívózás
+2026-04-30 16:49:40,747 - INFO - New task added to the list: program fejlesztés
+2026-04-30 16:49:57,290 - INFO - New task added to the list: anyós meglátogatása
+2026-04-30 16:50:10,781 - INFO - New task added to the list: gyerek megnevelése mert egyest kapott az iskolában
+2026-04-30 16:50:32,147 - INFO - New task added to the list: láda sör megvásárlása a sarki spar-ban
+2026-04-30 16:50:48,877 - INFO - New task added to the list: kutya megvakargatása
+2026-04-30 16:50:57,539 - INFO - Displaying all tasks
+2026-04-30 16:51:32,403 - INFO - New task added to the list: szer
+2026-04-30 16:51:39,498 - INFO - Displaying all tasks
+2026-04-30 16:51:47,739 - INFO - Task removed from the list: szer
+2026-04-30 16:51:51,146 - INFO - Displaying all tasks
+2026-04-30 16:51:56,275 - INFO - Saving tasks to file: to_do_list.txt
+2026-04-30 16:51:56,277 - INFO - Program successfully ended.
+2026-04-30 16:52:50,421 - INFO - Program started.
+2026-04-30 16:52:50,422 - INFO - Loading tasks from file: to_do_list.txt
+2026-04-30 16:52:50,444 - INFO - 7 task(s) read.
+2026-04-30 16:52:55,043 - INFO - Displaying all tasks
+2026-04-30 16:52:58,507 - INFO - Saving tasks to file: to_do_list.txt
+2026-04-30 16:52:58,509 - INFO - Program successfully ended.
