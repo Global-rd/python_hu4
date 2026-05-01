@@ -4,16 +4,13 @@ if city == "Chicago":
     can_move_in = True
 elif city == "Washington":
     can_move_in = False
-elif (city == "New York" or city == "San Francisco") and rent < 4000:
+elif city in ["New York","San Francisco"] and rent < 4000:
     can_move_in = True
-elif rent <= 3000 and city not in ["Chicago", "Washington", "New York", "San Francisco"]:
-    # Ez az ág minden más városra vonatkozik
+elif rent <= 3000:
     can_move_in = True
 else:
-    # Ha egyik fenti feltétel sem teljesült
     can_move_in = False
 
-# kiírom fstringgel is a megoldást
 if can_move_in:
     print(f"Sarah can move into {city} for {rent} USD.")
 else:
