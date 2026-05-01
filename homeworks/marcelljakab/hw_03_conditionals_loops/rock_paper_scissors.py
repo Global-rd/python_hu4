@@ -14,30 +14,37 @@ player2_score = 0
 # Játék
 for round_num in range(1, rounds + 1):
     print(f"\n--- {round_num}. kör ---")
-
+    
+    # Belső loop: addig megy, amíg nincs nyertes ebben a körben
     while True:
-        p1 = input("1. játékos (rock/paper/scissors): ").strip().lower()
-        if p1 in ["rock", "paper", "scissors"]:
-            break
-        print("Hibás! Csak rock, paper vagy scissors lehet!")
-
-    while True:
-        p2 = input("2. játékos (rock/paper/scissors): ").strip().lower()
-        if p2 in ["rock", "paper", "scissors"]:
-            break
-        print("Hibás! Csak rock, paper vagy scissors lehet!")
-
-    if p1 == p2:
-        print("Döntetlen! A kört újra kell játszani!")
-        continue
-    elif (p1 == "rock" and p2 == "scissors") or \
-         (p1 == "paper" and p2 == "rock") or \
-         (p1 == "scissors" and p2 == "paper"):
-        print("1. játékos nyerte a kört!")
-        player1_score += 1
-    else:
-        print("2. játékos nyerte a kört!")
-        player2_score += 1
+        # Player 1 inputja
+        while True:
+            p1 = input("1. játékos (rock/paper/scissors): ").strip().lower()
+            if p1 in ["rock", "paper", "scissors"]:
+                break
+            print("Hibás! Csak rock, paper vagy scissors lehet!")
+        
+        # Player 2 inputja
+        while True:
+            p2 = input("2. játékos (rock/paper/scissors): ").strip().lower()
+            if p2 in ["rock", "paper", "scissors"]:
+                break
+            print("Hibás! Csak rock, paper vagy scissors lehet!")
+        
+        # Döntés
+        if p1 == p2:
+            print("Döntetlen! A kört újra kell játszani!")
+            continue  # A belső while-ra vonatkozik - újrakérdez
+        elif (p1 == "rock" and p2 == "scissors") or \
+             (p1 == "paper" and p2 == "rock") or \
+             (p1 == "scissors" and p2 == "paper"):
+            print("1. játékos nyerte a kört!")
+            player1_score += 1
+        else:
+            print("2. játékos nyerte a kört!")
+            player2_score += 1
+        
+        break  # Kilépünk a belső while-ból, mehet a következő kör
 
 # Végeredmény
 print(f"\n=== VÉGEREDMÉNY ===")
