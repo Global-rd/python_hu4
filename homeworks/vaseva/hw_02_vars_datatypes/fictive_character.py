@@ -45,4 +45,4 @@ print(f"NPC's name is {first_name} {last_name} who has been in Wasteland for {ag
 
 now = datetime.now()
 print(f"This report was made today on {now:%m-%d-%Y} {now:%H:%M} CET, on {first_name} {last_name}'s happy birthday.")
-
+# modified to restore in PR
