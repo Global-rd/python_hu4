@@ -1,17 +1,42 @@
+import os
 import sys
+import logging
+#global list
 tasks=[]
+
+#logger
+file_handler = logging.FileHandler("homeworks/rakosgergelypeter/hw_04_exceptions_logging/tasks.log",mode="a")
+stream_handler = logging.StreamHandler()
+
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+
+file_handler.setFormatter(formatter)
+stream_handler.setFormatter(formatter)
+
+file_handler.setLevel(logging.DEBUG)
+stream_handler.setLevel(logging.DEBUG)
+
+logger = logging.getLogger()
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+logger.setLevel(logging.DEBUG)
 
 def add_task(task):
     try:
         tasks.append(task)
+        logger.info(f"Task hozzáadva:{task}")
     except MemoryError as e:
-        print("Nem sikerült a hozzáadás"+e)
+        logger.error(f"Nem sikerült a hozzáadás:{e} - task:{task}")
 
 def remove_task(task):
     try:
         tasks.remove(task)
+        logger.info(f"Task törölve:{task}")
     except ValueError as e:
-        print("Nem sikerült a törlés:"+e)
+        logger.error(f"Nem sikerült a törlés:{e} - task:{task}")
 
 def view_tasks():
     for item in tasks:
@@ -26,13 +51,14 @@ def read_tasks(file_path):
         with open(file_path, "r") as file:
             lines = file.readlines()
             for item in lines:
-                tasks.append(item)
+                tasks.append(item.strip())
     except FileNotFoundError as e :
-        pass
+        logger.error(f"Nem sikerült a file olvasása:{e}")
 
 def write_task(file_path): 
-    with open(file_path, "a") as file:
-        file.writelines(item for item in tasks)
+    with open(file_path, "w") as file:
+        file.write("\n".join(item.strip() for item in tasks) + "\n")
+        #file.writelines(item for item in tasks)
 
 def display_menu():
     for key,value in menu_dict.items():
@@ -66,7 +92,9 @@ def choose_menu():
         
 
 def main():
+    print(os.getcwd())
     read_tasks("homeworks/rakosgergelypeter/hw_04_exceptions_logging/tasks.txt")
+    print(tasks)
     display_menu()
     choose_menu()
     write_task("homeworks/rakosgergelypeter/hw_04_exceptions_logging/tasks.txt")
