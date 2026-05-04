@@ -22,6 +22,13 @@ for round in range(rounds_no) :
         else:
             return "Player_02 wins!"
     result = determine_winner(player_01_input, player_02_input)
+    while result == "It's a tie!":
+        print("It's a tie! Please play again.")
+        player_01_input = input("Player_01, please enter rock, paper or scissor: ")
+        player_02_input = input("Player_02, please enter rock, paper or scissor: ")
+        result = determine_winner(player_01_input, player_02_input)
+    else:
+        result = determine_winner(player_01_input, player_02_input)
     print(result)
     if result == "Player_01 wins!":
         player_01_points += 1
