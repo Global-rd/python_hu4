@@ -34,23 +34,23 @@ user_info["favourite_meals"].append("spaghetti")
 print(user_info["favourite_meals"])
 
 # 5. feladat
-user_info["favourite_meals"].append(user_info["favourite_meals"][2])
-user_info["favourite_meals"].append(user_info["favourite_meals"][3])
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 print(user_info["favourite_meals"])
 
 # 6. feladat
-uj_lista = []
-for elem in user_info["favourite_meals"]:
-    if elem not in uj_lista:
-        uj_lista.append(elem)
-user_info["favourite_meals"] = uj_lista
+uj_lista = set(user_info["favourite_meals"])
+print(f"6. feladat: {uj_lista}")
+
+uj_lista = list(uj_lista)
+print(f"6. feladat: {uj_lista}")
+
 
 # 7.feladat
-elem1 = user_info["favourite_meals"][0]
-elem_utolso = user_info["favourite_meals"][-1]
+item1 = user_info["favourite_meals"][0]
+item_last = user_info["favourite_meals"][-1]
 
-user_info["favourite_meals"][0] = elem_utolso
-user_info["favourite_meals"][-1] = elem1
+user_info["favourite_meals"][0] = item_last
+user_info["favourite_meals"][-1] = item1
 print(user_info["favourite_meals"])
 
 # 8.feladat

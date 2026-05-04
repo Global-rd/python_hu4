@@ -1,7 +1,7 @@
 
-name = "Darvas Magdolna"
-age = "53"
-python_exp_in_years = "0"
+name = input("Hogy hívnak?" )
+age = int(input("Hány éves vagy? "))
+python_exp_in_years = int(input("Hány év Python gyakorlatod van? "))
 
 print(name)
 print(age)
@@ -17,8 +17,6 @@ print(f"My character is {age_in_days} old. His/her name is {name} and he/she has
 # extra task
 
 question = input("Szeretnél-e profi python fejlesztő lenni?")
-if question == "yes":
-    print(f"My character is {age_in_days} old. His/her name is {name} and he/she has {python_exp_in_years} years experience. He/she wants to be a Python developer!")
-elif question == "no":
-    print(f"My character is {age_in_days} old. His/her name is {name} and he/she has {python_exp_in_years} years experience.  He/she does not want to be a Python developer!")
-    
+dev_intention = "wants" if question== "yes" else "does not want"
+   
+print(f"My character is {age_in_days} old. His/her name is {name} and he/she has {python_exp_in_years} years experience. He/she {"wants" if question== "yes" else "does not want"} to be a Python developer!")
