@@ -4,6 +4,8 @@ Task manager class for the to-do application.
 
 import logging
 
+from lib.log_messages import LogMessage
+
 
 class TaskManager:
     """Manage task list operations."""
@@ -15,7 +17,7 @@ class TaskManager:
     def display_tasks(self) -> None:
         """Print the current tasks."""
         if len(self.tasks) == 0:
-            logging.info("Task list displayed. The list is empty.")
+            logging.info(LogMessage.TASK_LIST_EMPTY.get_message())
             return
 
         print("Current tasks:")
@@ -26,20 +28,23 @@ class TaskManager:
         print("\n" + "-" * 100 + "\n")
 
         print(f"Total tasks: {len(self.tasks)}\n")
-        logging.info("Task list displayed.")
+        logging.info(LogMessage.TASK_LIST_DISPLAYED.get_message())
 
     def add_task(self, task: str) -> None:
         """Add a task to the task list."""
         self.tasks.append(task)
-        logging.info("Task added: %s", task)
+        logging.info(LogMessage.TASK_ADDED.get_message(), task)
 
     def remove_task(self, task_number: int) -> None:
         """Remove a task from the task list by its number."""
         task_index: int = task_number - 1
 
         if task_index < 0 or task_index >= len(self.tasks):
-            logging.error("Task number does not exist: %s", task_number)
+            logging.error(
+                LogMessage.TASK_NUMBER_NOT_FOUND.get_message(),
+                task_number,
+            )
             return
 
         removed_task: str = self.tasks.pop(task_index)
-        logging.info("Task removed: %s", removed_task)
+        logging.info(LogMessage.TASK_REMOVED.get_message(), removed_task)

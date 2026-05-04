@@ -7,6 +7,7 @@ import logging.config
 from pathlib import Path
 
 from lib.file_handler import FileHandler
+from lib.log_messages import LogMessage
 from lib.menu import InvalidMenuOptionError, Menu, MenuOption
 from lib.task_manager import TaskManager
 
@@ -46,7 +47,7 @@ class TodoApp:
     def __init__(self) -> None:
         """Initialize the application dependencies."""
         self.setup_logging()
-        logging.info("To-do application started.")
+        logging.info(LogMessage.APP_STARTED.get_message())
 
         self.file_handler = FileHandler(self.TASKS_FILE_PATH)
         self.menu = Menu(self.SECTION_SEPARATOR)
@@ -61,7 +62,7 @@ class TodoApp:
             if task != "":
                 return task
 
-            logging.error("Empty task input.")
+            logging.error(LogMessage.EMPTY_TASK_INPUT.get_message())
             print(self.SECTION_SEPARATOR)
 
     def get_task_number(self) -> int:
@@ -79,7 +80,9 @@ class TodoApp:
             task_number: int = self.get_task_number()
             self.task_manager.remove_task(task_number)
         except ValueError:
-            logging.error("Invalid task number input.")
+            logging.error(
+                LogMessage.INVALID_TASK_NUMBER_INPUT.get_message()
+            )
             print(self.SECTION_SEPARATOR)
 
     def setup_logging(self) -> None:
@@ -147,7 +150,7 @@ class TodoApp:
                 self.handle_remove_task()
             else:
                 self.file_handler.write_tasks(self.tasks)
-                logging.info("To-do application closed.")
+                logging.info(LogMessage.APP_CLOSED.get_message())
                 print(self.SECTION_SEPARATOR)
                 print("Goodbye!\n")
                 break
