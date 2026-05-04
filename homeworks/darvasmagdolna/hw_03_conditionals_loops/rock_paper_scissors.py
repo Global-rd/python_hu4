@@ -1,52 +1,43 @@
-# 2 feladat
+j1_score = 0
+j2_score = 0
 
-korok_szama = int(input("Add meg hány körből álljon a játék: "))
+while played_rounds % 2 != 1:
+    played_rounds = int(input("Please enter only odd numbers: "))
 
-j1_pont = 0
-j2_pont = 0
+round = 0
+while round < played_rounds:
+    print(f"----{round + 1}. round----")
 
-while korok_szama % 2 != 1:
-    korok_szama = int(input("Csak páratlan számot adját meg: "))
+    player1 = input("Player 1, choose one: rock (r), paper (p), scissors (s): ")
+    while player1 not in ["r", "p", "s"]:
+        player1 = input("Player 1, choose one: rock (r), paper (p), scissors (s): ")
 
-for i in range(1, korok_szama + 1):
-    print(f"----{i}. kör----")
-    nyertes = 0
-    while nyertes == 0:
-        jatekos1 = input("játékos1 válassz egyet: kő(k), papír(p), olló(o): ")
-        jatekos2 = input("Játékos2 válassz egyet: kő(k), papír(p), olló(o): ")
-        # while jatekos1 != "k" or jatekos1 != "p" or jatekos1 != "o":
-        #     jatekos1 = input("játékos1 válassz egyet: kő(k), papír(p), olló(o): ")
-        print(f"Játékos választása: {jatekos1}")
+    player2 = input("Player 2, choose one: rock (r), paper (p), scissors (s): ")
+    while player2 not in ["r", "p", "s"]:
+        player2 = input("Player 2, choose one: rock (r), paper (p), scissors (s): ")
 
-        # while jatekos2 != "k" or jatekos2 != "p" or jatekos2 != "o":
-        #     jatekos2 = input("Játékos2 válassz egyet: kő(k), papír(p), olló(o): ")
-        print(f"Játékos választása: {jatekos2}")
+    if player1 == player2:
+        print("Draw")
+    elif (player1 == "r" and player2 == "s") or \
+            (player1 == "p" and player2 == "r") or \
+            (player1 == "s" and player2 == "p"):
+        print(f"{round + 1}. round winner is Player 1: {player1}")
+        j1_score += 1
+        round += 1
+    else:
+        print(f"{round + 1}. round winner is Player 2: {player2}")
+        j2_score += 1
+        round += 1
 
-        if jatekos1 == jatekos2:
-            print("Döntetlen")
-            nyertes = 0
-        elif (jatekos1 == "k" and jatekos2 == "o") or \
-                (jatekos1 == "p" and jatekos2 == "k") or \
-                (jatekos1 == "o" and jatekos2 == "p"):
-            print(f"{i}. kör nyertese: {jatekos1}")
-            nyertes = 1
-        else:
-            print(f"{i}. kör nyertese: {jatekos2}")
-            nyertes = 2
+print("=====GAME OVER=====")
+print(f"Player 1's points: {j1_score}")
+print(f"Player 2's points: {j2_score}")
 
-        if nyertes == 1:
-            j1_pont += 1
-        else:
-            j2_pont += 1
-
-print("=====Játék vége=====")
-print(f"1. játékos pontjai: {j1_pont}")
-print(f"2. játékos pontjai: {j2_pont}")
-
-if j1_pont > j2_pont:
-    print("Az 1. játékos nyert!")
+if j1_score > j2_score:
+    print("Player 1 won!")
 else:
-    print("A 2. játékjos nyert!")
+    print("Player 2 won!")
+
         
 
 
