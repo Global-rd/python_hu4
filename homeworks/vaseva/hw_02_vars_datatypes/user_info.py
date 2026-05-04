@@ -61,4 +61,4 @@ print("Up-to-date user_info dictionary after all changes: ")
 print("----------------------------------------------------")
 print("user info = ")
 pprint(user_info)
-# modified to restore in PR
+# modified to restore in PR 04-05-26
