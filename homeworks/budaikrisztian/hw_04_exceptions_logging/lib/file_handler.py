@@ -32,7 +32,7 @@ class FileHandler:
             return []
         except OSError as error:
             logging.error(LogMessage.TASK_READ_ERROR.get_message(), error)
-            return []
+            raise
 
     def write_tasks(self, tasks: list[str]) -> None:
         """Write tasks to the text file."""
@@ -46,3 +46,4 @@ class FileHandler:
             logging.info(LogMessage.TASKS_WRITTEN.get_message())
         except OSError as error:
             logging.error(LogMessage.TASK_WRITE_ERROR.get_message(), error)
+            raise
