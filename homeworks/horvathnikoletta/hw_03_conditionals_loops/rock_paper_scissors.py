@@ -33,11 +33,10 @@ while played_rounds < rounds:
     elif (player1== "rock" and player2== "scissors") or (player1== "paper" and player2== "rock") or (player1== "scissors" and player2== "paper"):
         print("Player1 won at this round")
         player1_score += 1
-        played_rounds +=1
     else:
         print("Player2 won at this round")
         player2_score += 1
-        played_rounds +=1
+    played_rounds +=1
 
 #a jaték végén a nyertes kiírása pontokkal
 if player1_score > player2_score:
