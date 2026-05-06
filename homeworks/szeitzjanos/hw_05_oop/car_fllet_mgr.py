@@ -39,17 +39,17 @@
 class Car:
 
     def __init__(self, brand: str, model: str, year: int, mileage: int = 0, fuel_level: int = 100):
-        self.brands = brand
+        self.brand = brand
         self.model = model
         self.year = year
         self.mileage = mileage
         self.fuel_level = fuel_level
 
     def __str__(self):
-        return f'{self.brands.upper()} {self.model.upper()}\t • {self.year} • {int(self.mileage)}\t • {int(self.fuel_level)}'
+        return f'{self.brand.upper()} {self.model.upper()}\t • {self.year} • {int(self.mileage)}\t • {int(self.fuel_level)}'
 
     def no_more_gasoline(self):
-        print(f"\n{self.brands.upper()} {self.model.upper()} "
+        print(f"\n{self.brand.upper()} {self.model.upper()} "
               "no more gasoline, tank is full!")
 
     def drive(self, distance: int):
@@ -58,10 +58,10 @@ class Car:
                 self.mileage += distance
             else:
                 self.mileage += self.fuel_level / 0.1
-                print(f"\n{self.brands.upper()} {self.model.upper()} "
+                print(f"\n{self.brand.upper()} {self.model.upper()} "
                       "couldn’t reach the intended distance.")
         else:
-            print(f"\n{self.brands.upper()} {self.model.upper()} "
+            print(f"\n{self.brand.upper()} {self.model.upper()} "
                   "won't go anywhere, the tank is empty.")
             # ha van elegendo uzemanyag, akkor mehet a tavolság
             # ha nincs, akkor csak annyi, mig porzik a tank
@@ -103,9 +103,7 @@ class Fleet:
             print(car)
 
     def summ_car_distance(self):
-        summ_car_dist: int = 0
-        for car in self.cars:
-            summ_car_dist += car.mileage
+        summ_car_dist = sum(car.mileage for car in self.cars)
         print(f'\nThe overall mileage of the fleet: {int(summ_car_dist)} km.')
 
 
