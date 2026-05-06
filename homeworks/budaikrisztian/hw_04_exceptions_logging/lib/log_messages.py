@@ -26,9 +26,7 @@ class LogMessage(Enum):
     def get_message(self) -> str:
         """Return the log message for this key."""
         if self not in LOG_MESSAGES:
-            raise ValueError(
-                f"Missing log message for key: {self.value}"
-            )
+            raise ValueError(f"Missing log message for key: {self.value}")
 
         return LOG_MESSAGES[self]
 
@@ -48,8 +46,6 @@ LOG_MESSAGES: dict[LogMessage, str] = {
     LogMessage.TASK_LIST_EMPTY: "Task list displayed. The list is empty.",
     LogMessage.TASK_LIST_DISPLAYED: "Task list displayed.",
     LogMessage.TASK_ADDED: "Task added: %s",
-    LogMessage.TASK_NUMBER_NOT_FOUND: (
-        "Task number does not exist: %s"
-    ),
+    LogMessage.TASK_NUMBER_NOT_FOUND: ("Task number does not exist: %s"),
     LogMessage.TASK_REMOVED: "Task removed: %s",
 }
