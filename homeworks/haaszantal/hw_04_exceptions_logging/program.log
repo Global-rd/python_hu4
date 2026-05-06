@@ -1,1 +1,1 @@
-2026-05-03 09:55:21,799 - WARNING - A fájl még nem létezett, ezért létrehozva: [Errno 2] No such file or directory: 'to_do_list.txt'
+2026-05-06 09:48:48,227 - WARNING - A fájl még nem létezett, ezért létrehozva: [Errno 2] No such file or directory: 'c:\\Users\\haasz.antal\\Pyth_project\\python_hu4\\homeworks\\haaszantal\\hw_04_exceptions_logging\\to_do_list.txt'

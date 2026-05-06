@@ -24,7 +24,8 @@ logger.addHandler(stream_handler)
 logger.setLevel(logging.DEBUG)
 
 #a PATH változóval a lista.txt elérési útvonala
-file_path = Path("to_do_list.txt") 
+#file_path = Path("to_do_list.txt")
+file_path = BASE_DIR / "to_do_list.txt" #itt is inkább a BASE_DIR-t használom
 
 #1. függvény a lista olvasásához
 def task_reading():
@@ -36,12 +37,12 @@ def task_reading():
                 new_lines.append(line.strip()) 
         return new_lines
     except FileNotFoundError as e:
-        logging.warning(f"A fájl még nem létezett, ezért létrehozva: {e}")
+        logger.warning(f"A fájl még nem létezett, ezért létrehozva: {e}") #nem az általános logging kell, hanem a létrehozott logger
         with open(file_path, "w") as file:
             pass
         return []  
     
-#a new_lines változó definiálása a tas_reading függvénnyel
+#a new_lines változó definiálása a task_reading függvénnyel
 new_lines = task_reading() 
 
 #2. függvény a fájlba íráshoz
@@ -51,7 +52,7 @@ def task_writing(new_lines):
             for line in new_lines:
                file.write(line + "\n")
     except OSError as e: 
-        logging.error(f"A lemez megtelt: {e}")
+        logger.error(f"A lemez megtelt: {e}") #nem az általános logging kell, hanem a létrehozott logger
 
 #3. függvény a lista megjelenítéséhez
 def task_display(new_lines): 
