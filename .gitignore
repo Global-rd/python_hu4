@@ -22,7 +22,6 @@ virtualenv/
 
 # Log files
 *.log
-!**
 
 # OS specific
 .DS_Store
