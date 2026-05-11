@@ -1,4 +1,13 @@
 game_list = ["rock", "paper", "scissor"]
+
+def determine_winner(player_01_input, player_02_input):
+        if player_01_input == player_02_input:
+            return "It's a tie!"
+        elif (player_01_input.lower() == game_list[0] and player_02_input.lower() == game_list[2]) or (player_01_input.lower() == game_list[1] and player_02_input.lower() == game_list[0]) or (player_01_input.lower() == game_list[2] and player_02_input.lower() == game_list[1]):
+            return "Player_01 wins!"
+        else:
+            return "Player_02 wins!"
+
 while True:
     rounds_no = int(input("How many rounds do you want to play?: "))
         
@@ -14,13 +23,6 @@ for round in range(rounds_no) :
     player_01_input = input("Player_01, please enter rock, paper or scissor: ")
     player_02_input = input("Player_02, please enter rock, paper or scissor: ")
  
-    def determine_winner(player_01_input, player_02_input):
-        if player_01_input == player_02_input:
-            return "It's a tie!"
-        elif (player_01_input.lower() == game_list[0] and player_02_input.lower() == game_list[2]) or (player_01_input.lower() == game_list[1] and player_02_input.lower() == game_list[0]) or (player_01_input.lower() == game_list[2] and player_02_input.lower() == game_list[1]):
-            return "Player_01 wins!"
-        else:
-            return "Player_02 wins!"
     result = determine_winner(player_01_input, player_02_input)
     while result == "It's a tie!":
         print("It's a tie! Please play again.")
