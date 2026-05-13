@@ -43,17 +43,15 @@ class Fleet:
     def remove_car(self, car):
         if car in self.cars:
             self.cars.remove(car)
-            print(f"Car removed from fleet: {car.brand} {car.mode}")
+            print(f"Car removed from fleet: {car.brand} {car.model}")
         
         else:
             print(f"Car not found in fleet")
 
     
     def total_mileage(self):
-        total_km = 0
-        for car in self.cars:
-            total_km += car.mileage
-        return total_km
+        return sum(car.mileage for car in self.cars)
+    
     def show_fleet(self):
         print("\n--- Fleet status---")
         for car in self.cars:
