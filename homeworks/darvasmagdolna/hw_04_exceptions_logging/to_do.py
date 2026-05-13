@@ -19,10 +19,10 @@ fileHandler.setFormatter(formatter)
 logger.addHandler(consoleHandler)
 logger.addHandler(fileHandler)
 
-tasks = []
 
 
-def read_tasks(filename="tasks.txt"):
+
+def read_tasks(tasks, filename="tasks.txt"):
     try:
         with open(filename, "r", encoding="utf-8") as file:
             for line in file:
@@ -34,7 +34,7 @@ def read_tasks(filename="tasks.txt"):
         logger.error(f"Error while reading tasks: {e}")
 
 
-def write_tasks(filename="tasks.txt"):
+def write_tasks(tasks, filename="tasks.txt"):
     try:
         with open(filename, "w", encoding="utf-8") as file:
             for task in tasks:
@@ -44,7 +44,7 @@ def write_tasks(filename="tasks.txt"):
         logger.error(f"Error while saving tasks: {e}")
 
 
-def display_tasks():
+def display_tasks(tasks):
     if not tasks:
         print("\nThere are no tasks.\n")
         return
@@ -55,11 +55,11 @@ def display_tasks():
     print()
 
 
-def add_task(task):
+def add_task(tasks, task):
     tasks.append(task)
 
 
-def remove_task(index):
+def remove_task(tasks, index):
     try:
         removed = tasks.pop(index - 1)
         return removed
@@ -81,7 +81,8 @@ def display_menu():
 
 
 def main():
-    read_tasks()
+    tasks = []
+    read_tasks(tasks)
     pending_log = None
 
     while True:
@@ -94,7 +95,7 @@ def main():
         choice = input("Select an option (1–3 or 'exit'): ").strip().lower()
 
         if choice == "exit":
-            write_tasks()
+            write_tasks(tasks)
             print("Exit... Tasks saved.")
             return False
 
@@ -104,18 +105,18 @@ def main():
 
         if choice == "1":
             task = input("Enter the task: ")
-            add_task(task)
+            add_task(tasks, task)
             pending_log = f"Task added: {task}"
             continue
 
         elif choice == "2":
-            display_tasks()
+            display_tasks(tasks)
 
         elif choice == "3":
-            display_tasks()
+            display_tasks(tasks)
             try:
                 index = int(input("Enter the number of the task to be deleted: "))
-                removed = remove_task(index)
+                removed = remove_task(tasks, index)
                 if removed:
                     pending_log = f"Task removed: {removed}"
             except ValueError:
@@ -123,4 +124,5 @@ def main():
             continue
 
 
-main()
+if __name__ == "__main__":
+    main()
