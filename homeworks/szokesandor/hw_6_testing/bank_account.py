@@ -9,7 +9,6 @@ class BankAccount:
     # Non-number esetén exception-t generál
     def _check_number_type(self, number: any, field_name: str):
         if type(number) not in (int, float):
-#            return
             raise TypeError(f"The {field_name} must be a number.")
     
     def deposit(self, amount: float):
