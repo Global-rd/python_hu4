@@ -17,7 +17,7 @@ logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
 
 tasks= []
-tasks_file= "tasks.txt"
+tasks_file= "homeworks/horvathnikoletta/hw_04_exceptions_logging/tasks.txt"
 
 def read_tasks():
     try:
