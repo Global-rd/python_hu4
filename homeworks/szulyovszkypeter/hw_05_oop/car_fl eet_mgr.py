@@ -35,7 +35,9 @@ class Car:
         """
         # Kiszámoljuk, maximum hány km-re elég a nafta (fuel / 0.1)
         #max_distance = self.fuel_level / 0.1
-        
+        if kilometers <= 0:
+            print("Hiba: A távolságnak nagyobbnak kell lennie, mint 0 km!")
+            return
         actual_distance = min(kilometers, self.fuel_level / 0.1)
         fuel_consumed = actual_distance * 0.1
         
@@ -89,33 +91,34 @@ class Fleet:
 if __name__ == "__main__":
     # Flotta és autók létrehozása
     my_fleet = Fleet()
-    Autoim1 = Car("Skoda", "S100", 1987)
-    Autoim2 = Car("Opel", "Ascona", 1993)
-    Autoim3 = Car("Renault", "Thalia", 2002)
-    Autoim4 = Car("Ford", "SMax", 2016)
+    autoim1 = Car("Skoda", "S100", 1987)
+    autoim2 = Car("Opel", "Ascona", 1993)
+    autoim3 = Car("Renault", "Thalia", 2002)
+    aAutoim4 = Car("Ford", "SMax", 2016)
 
     # Autók hozzáadása
-    my_fleet.add_car(Autoim1)
-    my_fleet.add_car(Autoim2)
-    my_fleet.add_car(Autoim3)
-    my_fleet.add_car(Autoim4)
+    my_fleet.add_car(autoim1)
+    my_fleet.add_car(autoim2)
+    my_fleet.add_car(autoim3)
+    my_fleet.add_car(aAutoim4)
 
     # utazás
     print("\n--- Utazások, tankolások ---")
-    Autoim1.drive(300)   # 30% üzemanyag használat
-    Autoim1.drive(400)   # még 40% üzemanyag használat
-    Autoim1.drive(400)   # túlhajtunk? elfogy a nafta?
-    print(Autoim1)
-    Autoim2.drive(1200)  # Elfogy az üzemanyag 1000 km után
-    print(Autoim2)
-    Autoim2.refuel(50)   # Tankolás
-    Autoim2.drive(200)   # tovább utazás
-    print(Autoim2)    
+    autoim1.drive(-1)   # negatív km tesztelése
+    autoim1.drive(300)   # 30% üzemanyag használat
+    autoim1.drive(400)   # még 40% üzemanyag használat
+    autoim1.drive(400)   # túlhajtunk? elfogy a nafta?
+    print(autoim1)
+    autoim2.drive(1200)  # Elfogy az üzemanyag 1000 km után
+    print(autoim2)
+    autoim2.refuel(50)   # Tankolás
+    autoim2.drive(200)   # tovább utazás
+    print(autoim2) 
  
     # Flotta állapotának megjelenítése
     my_fleet.display_fleet_status()
 
     # Autó eltávolítása és frissített adatok
     print("\n--- Autó eladása ---")
-    my_fleet.remove_car(Autoim3)
+    my_fleet.remove_car(autoim3)
     my_fleet.display_fleet_status()
