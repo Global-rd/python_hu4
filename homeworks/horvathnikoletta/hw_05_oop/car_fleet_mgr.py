@@ -16,6 +16,7 @@ class Car:
             max_distance = self.fuel_level/0.1
             self.mileage += max_distance
             print(f"Nincs elég üzemanyag a megadott km-re, maximum {max_distance} km-t tudsz megtenni!")
+            self.fuel_level = 0
 
     def refuel(self, amount):
         if amount < 0:
@@ -56,12 +57,12 @@ if __name__== "__main__":
     car2 = Car("Skoda", "Superb", "2013")
     car3 = Car("Nissan", "X-trail", "2006")
 
-flotta = Fleet()
-flotta.add_car(car1)
-flotta.add_car(car2)
-flotta.add_car(car3)
-car1.drive(100)
-car2.drive(300)
-car3.drive(900)
-flotta.show_status()
-car2.refuel(10)
+    flotta = Fleet()
+    flotta.add_car(car1)
+    flotta.add_car(car2)
+    flotta.add_car(car3)
+    car1.drive(100)
+    car2.drive(300)
+    car3.drive(900)
+    flotta.show_status()
+    car2.refuel(10)
