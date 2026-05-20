@@ -1,5 +1,3 @@
-import pprint
-
 class Car:
     def __init__(self, brand : str, model : str, year : int, mileage : int = 0, fuel_level : float = 100.00):
         self.brand = brand
@@ -11,7 +9,9 @@ class Car:
     def drive(self, distance):
         fuel_consumed = distance * 0.01
         if fuel_consumed > self.fuel_level:
-            print(f"Not enough fuel to drive the requested distance. max distance possible: {self.fuel_level / 0.01:.2f} miles.")
+            print(f"The max. possible distance is {self.fuel_level / 0.01:.2f} miles.")
+            self.mileage += self.fuel_level / 0.01
+            self.fuel_level = 0.00
             return
         self.mileage += distance
         self.fuel_level -= fuel_consumed
@@ -45,7 +45,7 @@ fleet = Fleet()
 fleet.add_car(Car(brand="Toyota", model="Corolla", year=2020))
 fleet.add_car(Car(brand="Honda", model="Civic", year=2019))
 fleet.add_car(Car(brand="Skoda", model="Octavia", year=2018))
-fleet.cars[0].drive(150)
+fleet.cars[0].drive(15000)
 fleet.cars[1].drive(200)
 fleet.cars[2].drive(250)
 fleet.list_cars()
