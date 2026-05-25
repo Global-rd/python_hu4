@@ -17,6 +17,10 @@ class Car:
         self.fuel_level = 100
 
     def drive(self, km):
+        # Ellenorzes: a km nem lehet negativ
+        if km < 0:
+            raise ValueError("A megtett km nem lehet negativ!")
+
         # Kiszamoljuk mennyi benzint igenyel az ut
         # 0.1% benzin / km
         fuel_needed = km * 0.1
@@ -35,6 +39,10 @@ class Car:
             print(f"{self.brand} {self.model}: {km} km megtetve. Benzin: {self.fuel_level:.1f}%")
 
     def refuel(self, amount):
+        # Ellenorzes: a tankolt mennyiseg nem lehet negativ
+        if amount < 0:
+            raise ValueError("A tankolt mennyiseg nem lehet negativ!")
+
         # Tankolas - figyelni kell hogy a fuel_level ne menjen 100% fole
         if self.fuel_level + amount > 100:
             # Tul sok lenne - csak addig toltjuk amig 100% lesz
@@ -134,3 +142,17 @@ my_fleet.remove_car(car2)
 
 # Vegso allapot
 my_fleet.show_fleet()
+
+# ============================================================
+# NEGATIV ERTEKEK TESZTELESE - reviewer keresere hozzaadva
+# ============================================================
+print("--- Negativ ertekek tesztelese ---")
+try:
+    car1.drive(-100)
+except ValueError as e:
+    print(f"Elkapott hiba a drive()-ban: {e}")
+
+try:
+    car1.refuel(-50)
+except ValueError as e:
+    print(f"Elkapott hiba a refuel()-ban: {e}")
