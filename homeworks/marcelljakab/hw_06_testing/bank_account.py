@@ -4,12 +4,12 @@ class BankAccount:
             raise ValueError("Initial balance cannot be negative.")
         self.owner = owner
         self.balance = balance
-
+    
     def deposit(self, amount: float):
         if amount <= 0:
             raise ValueError("Deposit amount must be positive.")
         self.balance += amount
-
+    
     def withdraw(self, amount: float):
         if amount <= 0:
             raise ValueError("Withdraw amount must be positive.")
@@ -22,7 +22,7 @@ class BankAccount:
             raise TypeError("Target must be a BankAccount instance.")
         self.withdraw(amount)
         target_account.deposit(amount)
-
+    
     def get_balance(self):
         return self.balance
 
