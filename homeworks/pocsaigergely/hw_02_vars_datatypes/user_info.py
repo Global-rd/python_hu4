@@ -29,21 +29,25 @@ user_info.update({"skills": skills})
 #print(user_info)
 
 #2 favourite meal abc
-favourite_meals_sorted = sorted(user_info["favourite_meals"])
+#favourite_meals_sorted = sorted(user_info["favourite_meals"])    //javit
+user_info["favourite_meals"].sort()
 
 #3 print one before last
-favourite_meals_sorted_len = len(favourite_meals_sorted)
-print(favourite_meals_sorted[favourite_meals_sorted_len-2])
+#favourite_meals_sorted_len = len(favourite_meals_sorted)    //javit
+#print(favourite_meals_sorted[favourite_meals_sorted_len-2])    //javit
+
+print(user_info["favourite_meals"][-2])
 
 #4 +speghetti
-favourite_meals_sorted.append("spaghetti")
+user_info["favourite_meals"].append("spaghetti")
 
 #5 append
-favourite_meals_sorted.append(favourite_meals_sorted[2])
-favourite_meals_sorted.append(favourite_meals_sorted[3])
+#user_info.append(user_info[2])    //javit
+#user_info.append(user_info[3])    //javit
+user_info["favourite_meals"].extend(user_info["favourite_meals"][2:4])
 
 #6 delete duplicates
-favourite_meals_sorted = list(set(favourite_meals_sorted))
+favourite_meals_sorted = list(set(user_info))
 
 #7 swap
 leng = len(favourite_meals_sorted)
