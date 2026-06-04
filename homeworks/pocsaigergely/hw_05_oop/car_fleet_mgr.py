@@ -39,6 +39,8 @@ class Car:
         else:
             print(f"Too much fuel for {self.brand} ! Tank only missing: ", fuel_missing,"%")
 
+    def __str__(self):
+        return f"{self.brand} {self.modell} ({self.year}) - Km: {self.mileage:.1f}, Üzemanyag: {self.fuel_level:.1f}%"
 
 class Fleet:
 
@@ -65,7 +67,9 @@ class Fleet:
         print(f"------TOTAL FLEET DATA------")
         for auto in self.autos:
             print(auto)
-        print("Total Fleet mileage {sum_mile}")
+#       print("Total Fleet mileage {sum_mile}")
+        print(f"Total Fleet mileage {sum(auto.mileage for auto in self.autos)}")
+
 """
 Datas
 """
