@@ -1,5 +1,5 @@
 """
-A scraper-elendő oldal fő URL-jét, és az oldal elemeinek eléréséhez szükséges SCC selector-okat tartalmazza
+A scraper-elendő oldal fő URL-jét, és az oldal elemeinek eléréséhez szükséges CSS selector-okat tartalmazza
 
 """
 
