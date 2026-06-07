@@ -8,6 +8,7 @@ def get_product_by_id(db: Session, product_id: str):
     return db.query(models.ProductModel).filter(models.ProductModel.id == product_id).first()
 
 def create_product(db: Session, product: schemas.ProductCreate):
+    # Itt a models.ProductModel automatikusan legenerálja az id-t a default=generate_uuid miatt
     db_product = models.ProductModel(**product.model_dump())
     db.add(db_product)
     db.commit()
