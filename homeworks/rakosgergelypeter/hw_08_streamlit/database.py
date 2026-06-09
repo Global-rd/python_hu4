@@ -11,7 +11,7 @@ from config import DB_PATH
 #import os
 #from dotenv import load_dotenv
 
-print(DB_PATH)
+#print(DB_PATH)
 
 CREATE_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS weather_searches (
