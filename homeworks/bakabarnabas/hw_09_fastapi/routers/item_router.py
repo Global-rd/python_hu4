@@ -36,3 +36,4 @@ def update_item(item_id: str, item: ItemUpdate, db: Session = Depends(get_db)):
 def delete_item(item_id: str, db: Session = Depends(get_db)):
     """1 termék törlése id alapján."""
     item_service.delete_item(db, item_id)
+    
