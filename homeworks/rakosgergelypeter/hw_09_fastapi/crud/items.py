@@ -1,6 +1,6 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from ..schemas import ItemsRequest
+from schema import ItemsResponse,ItemsRequest
 
 from model import Items
 
@@ -35,7 +35,7 @@ async def update_item_by_id(existing_item: Items,
     await db.refresh(existing_item)
     return existing_item
     
-async def delete_movie_by_id(item: Items, db:AsyncSession) -> Items:
+async def delete_item_by_id(item: Items, db:AsyncSession) -> Items:
     await db.delete(item)
     await db.commit()
     
