@@ -1,0 +1,5 @@
+TAG_LINKS_CSS = ".tag-item a"
+QUOTE_BLOCK_CSS = ".quote"
+QUOTE_TEXT_CSS = ".text"
+QUOTE_AUTHOR_CSS = ".author"
+NEXT_BUTTON_CSS = ".next a"
