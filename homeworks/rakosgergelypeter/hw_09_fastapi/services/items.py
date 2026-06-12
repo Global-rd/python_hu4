@@ -9,7 +9,7 @@ from crud.items import (
     update_item_by_id
 )
 from model import Items
-from homeworks.rakosgergelypeter.hw_09_fastapi.schema import ItemsRequest
+from schema import ItemsRequest
 
 async def list_items_service(db: AsyncSession) -> list[Items]:
     return await get_all_items(db)
