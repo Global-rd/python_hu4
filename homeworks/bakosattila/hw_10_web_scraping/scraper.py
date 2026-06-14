@@ -3,10 +3,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from pathlib import Path
 import pandas as pd
 import time
 
 BASE_URL = "https://quotes.toscrape.com"
+OUTPUT_FILE = Path(__file__).parent / "quotes.csv"
 
 
 def get_driver():
@@ -71,9 +73,8 @@ def main():
             all_quotes.extend(quotes)
 
         df = pd.DataFrame(all_quotes, columns=["tag", "author", "quote"])
-        output_file = "quotes.csv"
-        df.to_csv(output_file, index=False, encoding="utf-8")
-        print(f"\nDone! {len(df)} rows saved to '{output_file}'")
+        df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8")
+        print(f"\nDone! {len(df)} rows saved to '{OUTPUT_FILE}'")
 
     finally:
         driver.quit()
