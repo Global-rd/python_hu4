@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=80.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quotes-scraper"
+version = "0.1.0"
+description = "Selenium scraper for quotes.toscrape.com"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv==1.2.1",
+    "selenium==4.39.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
