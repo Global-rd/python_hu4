@@ -59,32 +59,39 @@ class QuoteScraper:
         return page_data
 
     def scrape_product_data(self, url):
-        print(f"Scraping {url}")
+            print(f"Scraping {url}")
 
-        if self.driver is None:
-            self.initialize_webdriver()
+            if self.driver is None:
+                self.initialize_webdriver()
 
-        self.driver.get(url)
-        if not self._cookies_accepted:
-            self.accept_cookies()
+            tag_name = url.split("/tag/")[-1].replace("/", "")
+            scraped_items = []
 
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, quo.QUOTE_HIERARCHY_XPATH))
-        )
-        
-        tag_name = url.split("/tag/")[-1].replace("/", "")
-        
-        raw_quotes = self.get_product_hierarchy()
-        
-        scraped_items = []
-        for item in raw_quotes:
-            scraped_items.append({
-                "tag": tag_name,
-                "author": item["author"],
-                "quote": item["quote"]
-            })
+            while url:
+                self.driver.get(url)
 
-        return scraped_items
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_all_elements_located((By.XPATH, quo.QUOTE_HIERARCHY_XPATH))
+                )
+
+                raw_quotes = self.get_product_hierarchy()
+
+                for item in raw_quotes:
+                    scraped_items.append({
+                        "tag": tag_name,
+                        "author": item["author"],
+                        "quote": item["quote"]
+                    })
+
+                next_buttons = self.driver.find_elements(By.CSS_SELECTOR, "li.next > a")
+
+                if next_buttons:
+                    next_href = next_buttons[0].get_attribute("href")
+                    url = next_href
+                else:
+                    url = None
+
+            return scraped_items
         
     @staticmethod
     def read_urls_from_file(file_name):

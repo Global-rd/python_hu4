@@ -15,9 +15,8 @@ def main():
         print("No URL list yet, reading from sitemap..")
 
         urls = []
-        for i in range(0, 3):
-            urls = scraper.get_urls_from_homepage("https://quotes.toscrape.com/")
-            scraper.write_urls_to_file(urls, URLS_FILE_PATH)
+        urls = scraper.get_urls_from_homepage("https://quotes.toscrape.com/")
+        scraper.write_urls_to_file(urls, URLS_FILE_PATH)
 
         scraper.write_urls_to_file(urls, URLS_FILE_PATH)
         print(f"Stored {len(urls)} in {URLS_FILE_PATH}")    
