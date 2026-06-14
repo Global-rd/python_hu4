@@ -1,5 +1,6 @@
 import csv
 from urllib.parse import quote
+from anyio import Path
 import selenium  #verzió lekéréshez csak teszt
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -100,10 +101,12 @@ finally:
     driver.quit()
 
 # 4. Harmadik lépés: Az összegyűjtött adatok mentése CSV fájlba
+file_path = Path("homeworks") / "szulyovszkypeter" / "hw_10_web_scraping"
 csv_filename = "top_10_tags_quotes.csv"
 
+
 # utf-8-sig kódolást használunk, hogy az Excel is közvetlenül, karakterhelyesen nyissa meg
-with open(csv_filename, mode='w', encoding='utf-8-sig', newline='') as csv_file:
+with open(file_path / csv_filename, mode='w', encoding='utf-8-sig', newline='') as csv_file:
     fieldnames = ['tag', 'author', 'quote']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     
