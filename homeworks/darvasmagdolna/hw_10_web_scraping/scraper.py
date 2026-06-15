@@ -1,9 +1,8 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-import csv
 from datetime import datetime as dt
-
 import selectors
 
 
@@ -43,8 +42,8 @@ class QuoteScrapper:
                 continue
 
             for quote in quotes:
-                text = quote.find_element(By.CSS_SELECTOR, selectors.QUOTE_TEXT_CSS)
-                author = quote.find_element(By.CSS_SELECTOR, selectors.QUOTE_AUTHOR_CSS)
+                text = quote.find_element(By.CSS_SELECTOR, selectors.QUOTE_TEXT_CSS).text
+                author = quote.find_element(By.CSS_SELECTOR, selectors.QUOTE_AUTHOR_CSS).text
 
                 result.append({
                     "tag": tag,
@@ -63,15 +62,13 @@ class QuoteScrapper:
 
     @staticmethod
     def save_to_csv(data, filename):
-        with open(filename, 'w', newline='', encoding="utf-8") as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["tag", "author", "quote", "scrape_timestamp", "url"])
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(base_dir, "output", filename)
 
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
+
+        with open(full_path, 'w', newline='', encoding="utf-8") as csvfile:
+            csvfile.write("tag,author,quote,scrape_timestamp,url\n")
             for row in data:
-                writer.writerow([
-                    row["tag"],
-                    row["author"],
-                    row["quote"],
-                    row["scrape_timestamp"],
-                    row["url"]
-                ])
+                csvfile.write(
+                    f"{row['tag']},{row['author']}, {row['quote']}, {row['scrape_timestamp']}, {row['url']}\n")
