@@ -61,7 +61,6 @@ def process_data(data):
         return df
     
  #       df2 = pd.DataFrame(data["current"])
-        
 
     else:
         st.error("No data available")
