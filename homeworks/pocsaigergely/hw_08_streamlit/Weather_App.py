@@ -56,12 +56,8 @@ def process_data(data):
         df = pd.DataFrame(data["hourly"])
         df["time"] = pd.to_datetime(df["time"])
         df.set_index("time", inplace=True)
- #       df = df.rename(columns={"o": "Open", "h": "High", "l": "Low", "c": "Close", "v": "Volume"})
- #       df = df.drop(columns={"t", "vw", "n"})
- #       df = df.sort_index()
- #       numeric_columns = ["Open", "High", "Low", "Close", "Volume"]
- #       df[numeric_columns] = df[numeric_columns].astype(float)
-        print(df)
+
+ #       print(df)
         return df
     
  #       df2 = pd.DataFrame(data["current"])
@@ -94,37 +90,38 @@ def main():
         )
         st.stop()
 
-    st.caption(location)
+ #   st.caption(location)
 
     weather_data = get_weather(location["lat"], location["lon"])
     if weather_data is None or "current" not in weather_data:
-        st.warning("Nem sikerült lekérni az időjárási adatokat. Próbáld újra később.")
+        st.warning("Retreiving data was unsuccessful. Try again later.")
         st.stop()
 
 
 
-    st.subheader(f"Jelenlegi időjárás itt: {location['name']}, {location['country']}")
-    st.caption(weather_data)
+    st.subheader(f"Jelenlegi időjárás itt: {location['name']}, {location['country']} ")
+    st.caption(f"Latitude: {location["lat"]}, Longitude: {location["lon"]} ")
+ #   st.caption(weather_data)
 
 
     if weather_data:
         df = process_data(weather_data)
 
-    st.dataframe(df)
+ #   st.dataframe(df)
 
 #LINE CHART
 
     if df is not None:
 
         st.subheader("Hourly forecast")
-        fig_close = px.line(
+        fig_forecast = px.line(
             df,
             x = df.index,
             y="temperature_2m",
             title=f"{city_input} Temperature at 2m height"
 
         )
-        st.plotly_chart(fig_close)
+        st.plotly_chart(fig_forecast)
 
     else:
         st.error("No data available. Check the symbol!")
