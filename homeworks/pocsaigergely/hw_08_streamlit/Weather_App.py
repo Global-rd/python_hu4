@@ -35,7 +35,6 @@ def get_coordinates(city_name):
 #FROM CITY COORDINATES GET WEATHER DATA
 @st.cache_data(ttl=1000)
 def get_weather(lat, lon):
-    """A koordinátákhoz lekéri a jelenlegi időjárást és az 5 napos előrejelzést."""
     params = {
         "latitude": lat,
         "longitude": lon,
@@ -57,6 +56,8 @@ def process_data(data):
         df["time"] = pd.to_datetime(df["time"])
         df.set_index("time", inplace=True)
 
+        st.caption(f"Actual weather: {data["current"]["temperature_2m"]}") 
+        print (data)    
  #       print(df)
         return df
     
@@ -98,7 +99,7 @@ def main():
 
 
 
-    st.subheader(f"Jelenlegi időjárás itt: {location['name']}, {location['country']} ")
+    st.subheader(f"Actual weather at: {location['name']}, {location['country']} ")
     st.caption(f"Latitude: {location["lat"]}, Longitude: {location["lon"]} ")
  #   st.caption(weather_data)
 
@@ -123,7 +124,7 @@ def main():
         st.plotly_chart(fig_forecast)
 
     else:
-        st.error("No data available. Check the symbol!")
+        st.error("No data available. Check the symbol!")  
 
 if __name__ == "__main__":
     main()
